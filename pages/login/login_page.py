@@ -44,6 +44,10 @@ class LoginPage:
 
         self.email_error_msg = page.get_by_text("Please enter a valid email")
 
+        self.remember_me_checkbox = page.get_by_role(
+            "checkbox", name="Keep me signed in for 30 days"
+        )
+
     # --- Actions ---
 
     def navigate(self):
@@ -89,3 +93,12 @@ class LoginPage:
 
     def get_password_validation_message(self):
         return self.password_input.evaluate("node => node.validationMessage")
+
+    def login_with_remember_me(self, email, password):
+        """
+        TC_06: Performs login with 'Remember Me' checkbox checked.
+        """
+        self.email_input.fill(email)
+        self.password_input.fill(password)
+        self.remember_me_checkbox.check()
+        self.sign_in_btn.click()

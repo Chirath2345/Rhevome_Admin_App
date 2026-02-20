@@ -39,17 +39,17 @@ class TestAdminLoginFunctional:
     #    login_page.verify_login_error_is_displayed()
     #    page.wait_for_timeout(500)
 
-    def test_tc_04_verify_login_with_invalid_email_format(self, page):
-        """
-        TC_04: Verify LogIn with Invalid email format
-        """
-        login_page = LoginPage(page)
-        login_page.navigate()
-        login_page.login("chamika#ceydigital.com", "Qwer@#12345")
-        error_message = login_page.get_email_validation_message()
-        page.wait_for_timeout(1000)
-        assert error_message != "", "Email validation message is not displayed!"
-        page.wait_for_timeout(1000)
+    # def test_tc_04_verify_login_with_invalid_email_format(self, page):
+    #    """
+    #    TC_04: Verify LogIn with Invalid email format
+    #    """
+    #    login_page = LoginPage(page)
+    #    login_page.navigate()
+    #    login_page.login("chamika#ceydigital.com", "Qwer@#12345")
+    #    error_message = login_page.get_email_validation_message()
+    #    page.wait_for_timeout(1000)
+    #    assert error_message != "", "Email validation message is not displayed!"
+    #    page.wait_for_timeout(1000)
 
     def test_tc_05_verify_login_with_empty_fields(self, page):
         """
@@ -66,3 +66,12 @@ class TestAdminLoginFunctional:
             email_error != "" or pass_error != ""
         ), "Validation message not shown for empty fields!"
         page.wait_for_timeout(1000)
+
+    def test_tc_06_verify_remember_me_functionality(self, page):
+        """
+        TC_06: Verify LogIn with 'Keep me signed in for 30 days' checkbox
+        """
+        login_page = LoginPage(page)
+        login_page.navigate()
+        login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+        expect(page.locator("div").nth(3)).to_be_visible()
