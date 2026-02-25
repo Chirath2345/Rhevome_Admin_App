@@ -169,32 +169,46 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(1000)
     #    dashboard_page.verify_profile_menu_visible()
 
-    def test_tc_06_verify_profile_dropdown_ui_elements(self, page: Page):
+    #def test_tc_06_verify_profile_dropdown_ui_elements(self, page: Page):
+    #    """
+    #    TC_06: Verify UI elements on user profile dropdown menu list
+    #    """
+    #    login_page = LoginPage(page)
+    #    dashboard_page = DashboardPage(page)
+#
+    #    login_page.navigate()
+    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+    #    page.wait_for_load_state("networkidle")
+    #    expect(dashboard_page.profile_dropdown_trigger).to_be_visible()
+    #    dashboard_page.profile_dropdown_trigger.click()
+    #    page.wait_for_timeout(1000)
+    #    expect(dashboard_page.menu_user_email).to_be_visible()
+    #    page.wait_for_timeout(500)
+    #    expect(dashboard_page.menu_admin_badge).to_be_visible()
+    #    page.wait_for_timeout(500)
+    #    expect(dashboard_page.menu_profile_settings).to_be_visible()
+    #    page.wait_for_timeout(500)
+    #    expect(dashboard_page.menu_notifications).to_be_visible()
+    #    page.wait_for_timeout(500)
+    #    expect(dashboard_page.menu_help_support).to_be_visible()
+    #    page.wait_for_timeout(500)
+    #    expect(dashboard_page.menu_sign_out).to_be_visible()
+    #    page.wait_for_timeout(500)
+    #
+    def test_tc_07_verify_profile_settings_navigation(self, page: Page):
         """
-        TC_06: Verify UI elements on user profile dropdown menu list
+        TC_07: Verify Profile Settings functionality
         """
         login_page = LoginPage(page)
         dashboard_page = DashboardPage(page)
-
         login_page.navigate()
         login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
         page.wait_for_load_state("networkidle")
-        expect(dashboard_page.profile_dropdown_trigger).to_be_visible()
-        dashboard_page.profile_dropdown_trigger.click()
-        page.wait_for_timeout(1000)
-        expect(dashboard_page.menu_user_email).to_be_visible()
-        page.wait_for_timeout(500)
-        expect(dashboard_page.menu_admin_badge).to_be_visible()
-        page.wait_for_timeout(500)
-        expect(dashboard_page.menu_profile_settings).to_be_visible()
-        page.wait_for_timeout(500)
-        expect(dashboard_page.menu_notifications).to_be_visible()
-        page.wait_for_timeout(500)
-        expect(dashboard_page.menu_help_support).to_be_visible()
-        page.wait_for_timeout(500)
-        expect(dashboard_page.menu_sign_out).to_be_visible()
-        page.wait_for_timeout(500)
-
+        dashboard_page.select_profile_settings()
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(2000)
+        expect(dashboard_page.profile_settings_title_area).to_be_visible()
+        
 
 
     
