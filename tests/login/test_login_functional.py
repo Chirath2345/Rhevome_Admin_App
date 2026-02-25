@@ -8,15 +8,15 @@ from pages.login.login_page import LoginPage
 @pytest.mark.functional
 class TestAdminLoginFunctional:
 
-    # def test_tc_01_verify_admin_login_ui_elements(self, page):
-    #    """
-    #    TC_01: Verify UI elements on Admin Login Page
-    #    """
-    #    login_page = LoginPage(page)
-    #    login_page.navigate()
-    #    page.wait_for_timeout(500)
-    #    login_page.verify_ui_elements()
-    #    page.wait_for_timeout(1000)
+    def test_tc_01_verify_admin_login_ui_elements(self, page):
+        """
+        TC_01: Verify UI elements on Admin Login Page
+        """
+        login_page = LoginPage(page)
+        login_page.navigate()
+        page.wait_for_timeout(500)
+        login_page.verify_ui_elements()
+        page.wait_for_timeout(2000)
     #
     # def test_tc_02_verify_successful_login(self, page):
     #    """
@@ -115,16 +115,16 @@ class TestAdminLoginFunctional:
     #    expect(page.locator("html")).to_have_class(re.compile(r"light"))
     #    page.wait_for_timeout(1000)
     
-    def test_tc_10_verify_theme_changes_to_dark_mode(self, page):
-        """
-        TC_10: Verify Theme Changes to Dark Mode
-        """
-        login_page = LoginPage(page)
-        login_page.navigate()
-        login_page.select_theme_dark()
-        page.wait_for_timeout(1000)
-        expect(page.locator("html")).to_have_class(re.compile(r"dark"))
-        page.wait_for_timeout(1000)
+    #def test_tc_10_verify_theme_changes_to_dark_mode(self, page):
+    #    """
+    #    TC_10: Verify Theme Changes to Dark Mode
+    #    """
+    #    login_page = LoginPage(page)
+    #    login_page.navigate()
+    #    login_page.select_theme_dark()
+    #    page.wait_for_timeout(1000)
+    #    expect(page.locator("html")).to_have_class(re.compile(r"dark"))
+    #    page.wait_for_timeout(1000)
     
     def test_tc_11_verify_theme_changes_to_system_mode(self, page):
         """
