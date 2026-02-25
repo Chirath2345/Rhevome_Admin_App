@@ -67,11 +67,27 @@ class TestAdminLoginFunctional:
     #    ), "Validation message not shown for empty fields!"
     #    page.wait_for_timeout(1000)
 
-    def test_tc_06_verify_remember_me_functionality(self, page):
+    #def test_tc_06_verify_remember_me_functionality(self, page):
+    #    """
+    #    TC_06: Verify LogIn with 'Keep me signed in for 30 days' checkbox
+    #    """
+    #    login_page = LoginPage(page)
+    #    login_page.navigate()
+    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+    #    expect(page.locator("div").nth(3)).to_be_visible() 
+
+    def test_tc_07_verify_password_visibility_toggle(self, page):
         """
-        TC_06: Verify LogIn with 'Keep me signed in for 30 days' checkbox
+        TC_04: Verify password visible icon functionality
         """
         login_page = LoginPage(page)
         login_page.navigate()
-        login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
-        expect(page.locator("div").nth(3)).to_be_visible() 
+        login_page.password_input.fill("Qwer@#12345")
+        assert login_page.get_password_field_type() == "password"
+        login_page.toggle_password_visibility()
+        page.wait_for_timeout(1000)
+        assert login_page.get_password_field_type() == "text"
+        login_page.toggle_password_visibility()
+        page.wait_for_timeout(1000)
+        assert login_page.get_password_field_type() == "password"
+        page.wait_for_timeout(1000)

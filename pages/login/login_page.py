@@ -48,6 +48,8 @@ class LoginPage:
             "checkbox", name="Keep me signed in for 30 days"
         )
 
+        self.password_toggle_btn = page.get_by_role("button").filter(has_text=re.compile(r"^$"))
+
     # --- Actions ---
 
     def navigate(self):
@@ -102,3 +104,15 @@ class LoginPage:
         self.password_input.fill(password)
         self.remember_me_checkbox.check()
         self.sign_in_btn.click()
+
+    def toggle_password_visibility(self):
+        """
+        TC_07: Clicks the eye icon to toggle password visibility.
+        """
+        self.password_toggle_btn.click()
+
+    def get_password_field_type(self):
+        """
+        Returns the 'type' attribute of the password field (e.g., 'password' or 'text').
+        """
+        return self.password_input.get_attribute("type")
