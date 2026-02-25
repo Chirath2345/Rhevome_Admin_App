@@ -101,6 +101,19 @@ class DashboardPage:
         self.profile_settings_title = page.get_by_text("Profile Settings", exact=True).first
         self.profile_settings_title_area = page.locator("div").filter(has_text=re.compile(r"Profile SettingsManage your", re.I)).first
 
+        # Notifications link text
+        self.menu_notifications_link = page.get_by_role("menuitem", name=re.compile(r"Notifications", re.I))
+        self.notifications_page_header = page.get_by_role("heading", name="Notifications")
+
+        # Help & Support link text
+        self.menu_help_support_link = page.get_by_role("menuitem", name="Help & Support")
+        self.help_page_header = page.get_by_role("heading", name=re.compile(r"Help|Support", re.I))
+
+        self.menu_sign_out_link = page.get_by_role("menuitem", name="Sign Out")
+
+        # Page load overview
+        self.dashboard_overview_container = page.locator("div").filter(has_text=re.compile(r"DashboardWelcome.*Customer Segments Overview", re.I)).first
+
  #========================================================================================
 
     #------ Actions---------
@@ -125,3 +138,15 @@ class DashboardPage:
     def select_profile_settings(self):
         self.profile_dropdown_trigger.click()
         self.menu_profile_settings.click()
+    
+    def select_notifications_from_profile(self):
+        self.profile_dropdown_trigger.click() 
+        self.menu_notifications_link.click()
+    
+    def select_help_support_from_profile(self):
+        self.profile_dropdown_trigger.click()
+        self.menu_help_support_link.click()
+    
+    def sign_out(self):
+        self.profile_dropdown_trigger.click()
+        self.menu_sign_out_link.click()
