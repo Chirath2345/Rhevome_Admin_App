@@ -46,3 +46,31 @@ class DashboardPage:
         self.upload_lab_card = page.get_by_role("button", name="Upload Lab Results Upload new")
         self.qa_dashboard_card = page.get_by_role("button", name="QA Dashboard Review and")
         self.ai_jobs_card = page.get_by_role("button", name="AI Jobs Queue Monitor AI")
+
+        # --- Sidebar Navigation Elements ---
+        self.nav_dashboard_overview = page.get_by_role("button", name="Dashboard Overview")
+        self.nav_order_management = page.get_by_role("button", name="Kit Fulfillment Kit")
+        
+        # Customer Care Group
+        self.nav_customer_care_dropdown = page.get_by_role("button", name="Customer Care Manage")
+        self.nav_customers = page.get_by_role("button", name="Customers Manage customers")
+        self.nav_reports = page.get_by_role("button", name="Reports View reports")
+        
+        # Laboratory Group
+        self.nav_laboratory_dropdown = page.get_by_role("button", name="Laboratory Lab operations")
+        self.nav_lab_upload = page.get_by_role("button", name="Lab Upload Upload results")
+        self.nav_ai_analysis = page.get_by_role("button", name="AI Analysis Generate reports")
+        self.nav_ai_job_queue = page.get_by_role("button", name="AI Job Queue Monitor analysis")
+        self.nav_three_day_reports = page.get_by_role("button", name="3-Day Reports Track daily")
+        self.nav_qa_dashboard = page.get_by_role("button", name="QA Dashboard 8 Quality control")
+        
+        # Administration Group
+        self.nav_administration_dropdown = page.get_by_role("button", name="Administration System admin")
+        self.nav_user_management = page.get_by_role("button", name="User Management Manage users")
+        self.nav_role_management = page.get_by_role("button", name="Role Management Manage roles")
+        
+        # Other Options
+        self.nav_perplexity_articles = page.get_by_role("button", name="Perplexity Articles Review")
+        self.nav_pdf_vector_upload = page.get_by_role("button", name="PDF Vector Upload Upload PDFs")
+        self.nav_settings = page.get_by_role("button", name="Settings System config")
+        self.nav_wiki = page.get_by_role("button", name="Wiki User guide & docs")
