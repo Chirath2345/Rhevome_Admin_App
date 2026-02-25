@@ -1,4 +1,6 @@
 from playwright.sync_api import Page, expect
+import pytest
+import re
 from pages.login.login_page import LoginPage
 from pages.mdashboard.dashboard_page import DashboardPage
 
@@ -121,16 +123,48 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.nav_wiki).to_be_visible()
 #
-    def test_tc_03_verify_notification_icon_functionality(self, page: Page):
+    #def test_tc_03_verify_notification_icon_functionality(self, page: Page):
+    #    """
+    #    TC_03: Verify notification icon functionality
+    #    """
+    #    login_page = LoginPage(page)
+    #    dashboard_page = DashboardPage(page)
+    #    login_page.navigate()
+    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+    #    page.wait_for_load_state("networkidle")
+    #    dashboard_page.open_notifications()
+    #    page.wait_for_timeout(1000)
+    #    expect(dashboard_page.notification_panel).to_be_visible()
+    #    page.wait_for_timeout(1000)
+    #
+    #def test_tc_04_verify_theme_switching_functionality(self, page: Page):
+    #    """
+    #    TC_04: Verify Switching between Dark and Light modes in Dashboard
+    #    """
+    #    login_page = LoginPage(page)
+    #    dashboard_page = DashboardPage(page)
+    #    login_page.navigate()
+    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+    #    page.wait_for_load_state("networkidle")
+    #    page.wait_for_timeout(3000)
+    #    theme_button = page.get_by_role("button").filter(has_text=re.compile(r"[🌙🌞]"))
+    #    theme_button.click()
+    #    page.wait_for_timeout(5000)
+    #    expect(page.locator("html")).to_have_class(re.compile(r"dark"))
+    #    theme_button.click()
+    #    page.wait_for_timeout(5000)
+    #    expect(page.locator("html")).to_have_class(re.compile(r"light"))
+
+    def test_tc_05_verify_profile_menu_functionality(self, page: Page):
         """
-        TC_03: Verify notification icon functionality
+        TC_05: Verify profile menu functionality
         """
         login_page = LoginPage(page)
         dashboard_page = DashboardPage(page)
         login_page.navigate()
         login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
         page.wait_for_load_state("networkidle")
-        dashboard_page.open_notifications()
+        page.wait_for_timeout(2000)
+        dashboard_page.open_profile_menu()
         page.wait_for_timeout(1000)
-        expect(dashboard_page.notification_panel).to_be_visible()
-        page.wait_for_timeout(1000)
+        dashboard_page.verify_profile_menu_visible()

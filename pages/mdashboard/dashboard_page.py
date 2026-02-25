@@ -75,9 +75,18 @@ class DashboardPage:
         self.nav_settings = page.get_by_role("button", name="Settings System config")
         self.nav_wiki = page.get_by_role("button", name="Wiki User guide & docs")
 
-        # --- Notification Icon ---
+        # Notification Icon 
         self.notification_btn = page.get_by_role("button", name="Notifications")
         self.notification_panel = page.get_by_label("", exact=True)
+
+        #Theme toggle
+        self.theme_btn = page.get_by_role("button", name="🌙")
+        self.theme_to_light_btn = page.get_by_role("button", name="🌞")
+        self.dark_option = page.get_by_role("menuitem", name="Dark")
+        self.light_option = page.get_by_role("menuitem", name="Light")
+
+        self.profile_btn = page.get_by_role("button", name=re.compile(r"Administrator", re.I))
+        self.profile_menu = page.get_by_role("menu", name=re.compile(r"Chamika J", re.I))
 
  #========================================================================================
 
@@ -87,3 +96,15 @@ class DashboardPage:
         Clicks the notification icon.
         """
         self.notification_btn.click()
+    
+    def toggle_theme(self):
+        if self.theme_to_dark_btn.count() > 0:
+            self.theme_to_dark_btn.click()
+        elif self.theme_to_light_btn.count() > 0:
+            self.theme_to_light_btn.click()
+    
+    def open_profile_menu(self):
+        self.profile_btn.click()
+
+    def verify_profile_menu_visible(self):
+        expect(self.profile_menu).to_be_visible()
