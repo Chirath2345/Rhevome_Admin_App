@@ -91,3 +91,5 @@ class TestAdminLoginFunctional:
         page.wait_for_timeout(1000)
         assert login_page.get_password_field_type() == "password"
         page.wait_for_timeout(1000)
+
+    
