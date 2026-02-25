@@ -74,3 +74,16 @@ class DashboardPage:
         self.nav_pdf_vector_upload = page.get_by_role("button", name="PDF Vector Upload Upload PDFs")
         self.nav_settings = page.get_by_role("button", name="Settings System config")
         self.nav_wiki = page.get_by_role("button", name="Wiki User guide & docs")
+
+        # --- Notification Icon ---
+        self.notification_btn = page.get_by_role("button", name="Notifications")
+        self.notification_panel = page.get_by_label("", exact=True)
+
+ #========================================================================================
+
+    #------ Actions---------
+    def open_notifications(self):
+        """
+        Clicks the notification icon.
+        """
+        self.notification_btn.click()
