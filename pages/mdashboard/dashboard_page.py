@@ -88,6 +88,19 @@ class DashboardPage:
         self.profile_btn = page.get_by_role("button", name=re.compile(r"Administrator", re.I))
         self.profile_menu = page.get_by_role("menu", name=re.compile(r"Chamika J", re.I))
 
+        # --- Profile Dropdown Elements (TC_06) ---
+        self.profile_dropdown_trigger = page.get_by_role("banner").get_by_role("button", name=re.compile(r"Administrator", re.I))
+        
+        # Menu items (Mewa strict mode violation ekak enne nathi wenna exact=True dammu)
+        self.menu_admin_badge = page.get_by_text("Administrator", exact=True).first
+        self.menu_user_email = page.get_by_text("chamika@ceydigital.com")
+        
+        # Links
+        self.menu_profile_settings = page.get_by_role("menuitem", name="Profile Settings")
+        self.menu_notifications = page.get_by_role("menuitem", name=re.compile(r"Notifications", re.I))
+        self.menu_help_support = page.get_by_role("menuitem", name="Help & Support")
+        self.menu_sign_out = page.get_by_role("menuitem", name="Sign Out")
+
  #========================================================================================
 
     #------ Actions---------
