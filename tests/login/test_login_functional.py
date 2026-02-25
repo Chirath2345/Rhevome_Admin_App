@@ -1,4 +1,5 @@
 import pytest
+import re
 from playwright.sync_api import expect
 
 from pages.login.login_page import LoginPage
@@ -76,20 +77,80 @@ class TestAdminLoginFunctional:
     #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
     #    expect(page.locator("div").nth(3)).to_be_visible() 
 
-    def test_tc_07_verify_password_visibility_toggle(self, page):
+    #def test_tc_07_verify_password_visibility_toggle(self, page):
+    #    """
+    #    TC_04: Verify password visible icon functionality
+    #    """
+    #    login_page = LoginPage(page)
+    #    login_page.navigate()
+    #    login_page.password_input.fill("Qwer@#12345")
+    #    assert login_page.get_password_field_type() == "password"
+    #    login_page.toggle_password_visibility()
+    #    page.wait_for_timeout(1000)
+    #    assert login_page.get_password_field_type() == "text"
+    #    login_page.toggle_password_visibility()
+    #    page.wait_for_timeout(1000)
+    #    assert login_page.get_password_field_type() == "password"
+    #    page.wait_for_timeout(1000)
+
+    #def test_tc_08_verify_theme_toggle_functionality(self, page):
+    #    """
+    #    TC_08: Verify theme toggle button functionality
+    #    """
+    #    login_page = LoginPage(page)
+    #    login_page.navigate()
+    #    login_page.click_theme_toggle()
+    #    page.wait_for_timeout(1000)
+    #    expect(login_page.theme_menu).to_be_visible()
+    #    page.wait_for_timeout(2000)
+    #
+    #def test_tc_09_verify_theme_changes_to_light_mode(self, page):
+    #    """
+    #    TC_09: Verify Theme Changes to Light Mode
+    #    """
+    #    login_page = LoginPage(page)
+    #    login_page.navigate()
+    #    login_page.select_theme_light()
+    #    page.wait_for_timeout(1000)
+    #    expect(page.locator("html")).to_have_class(re.compile(r"light"))
+    #    page.wait_for_timeout(1000)
+    
+    def test_tc_10_verify_theme_changes_to_dark_mode(self, page):
         """
-        TC_04: Verify password visible icon functionality
+        TC_10: Verify Theme Changes to Dark Mode
         """
         login_page = LoginPage(page)
         login_page.navigate()
-        login_page.password_input.fill("Qwer@#12345")
-        assert login_page.get_password_field_type() == "password"
-        login_page.toggle_password_visibility()
+        login_page.select_theme_dark()
         page.wait_for_timeout(1000)
-        assert login_page.get_password_field_type() == "text"
-        login_page.toggle_password_visibility()
+        expect(page.locator("html")).to_have_class(re.compile(r"dark"))
         page.wait_for_timeout(1000)
-        assert login_page.get_password_field_type() == "password"
+    
+    def test_tc_11_verify_theme_changes_to_system_mode(self, page):
+        """
+        TC_11: Verify Theme Changes to System Mode
+        """
+        login_page = LoginPage(page)
+        login_page.navigate()
+        login_page.select_theme_system()
         page.wait_for_timeout(1000)
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     

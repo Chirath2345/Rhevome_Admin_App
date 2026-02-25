@@ -49,6 +49,13 @@ class LoginPage:
         )
 
         self.password_toggle_btn = page.get_by_role("button").filter(has_text=re.compile(r"^$"))
+        self.theme_toggle_btn = page.get_by_role("button", name="Toggle theme")
+        self.theme_menu = page.get_by_role("menu", name="Toggle theme")
+        self.light_theme_item = page.get_by_role("menuitem", name="Light")
+        self.dark_theme_item = page.get_by_role("menuitem", name="Dark")
+        self.system_theme_item = page.get_by_role("menuitem", name="System")
+        self.system_theme_item = page.get_by_role("menuitem", name="System")
+        
 
     # --- Actions ---
 
@@ -116,3 +123,50 @@ class LoginPage:
         Returns the 'type' attribute of the password field (e.g., 'password' or 'text').
         """
         return self.password_input.get_attribute("type")
+
+    def click_theme_toggle(self):
+        """
+        TC_08: Clicks the theme toggle button to open the theme menu.
+        """
+        self.theme_toggle_btn.click()
+
+    def is_theme_menu_visible(self):
+        """
+        Returns True if the theme selection menu is visible.
+        """
+        return self.theme_menu.is_visible()
+    
+    def select_theme_light(self):
+        """
+        TC_09: Opens theme menu and selects Light mode.
+        """
+        self.theme_toggle_btn.click()
+        self.page.wait_for_timeout(500)
+        self.light_theme_item.click()
+
+    def select_theme_dark(self):
+        """
+        TC_10: Opens theme menu and selects Dark mode.
+        """
+        self.theme_toggle_btn.click()
+        self.page.wait_for_timeout(500)
+        self.dark_theme_item.click()
+    
+    def select_theme_system(self):
+        """
+        TC_11: Opens theme menu and selects System mode.
+        """
+        self.theme_toggle_btn.click()
+        self.page.wait_for_timeout(500)
+        self.system_theme_item.click()
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
