@@ -10,7 +10,6 @@
     "python.analysis.extraPaths": ["."],
     "python.autoComplete.extraPaths": [
         "."
-    ],
-    "python-envs.pythonProjects": []
+    ]
     
 }

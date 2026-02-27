@@ -1,11 +1,14 @@
-from playwright.sync_api import Page, expect
-import pytest
 import re
+
+import pytest
+from playwright.sync_api import Page, expect
+
 from pages.login.login_page import LoginPage
 from pages.mdashboard.dashboard_page import DashboardPage
 
+
 class TestAdminDashboard:
-    #def test_tc_01_verify_ui_elements_in_admin_dashboard(self, page: Page):
+    # def test_tc_01_verify_ui_elements_in_admin_dashboard(self, page: Page):
     #    """
     #    TC_01: Verify UI elements in Admin Dashboard
     #    """
@@ -23,7 +26,7 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.welcome_msg).to_be_visible()
     #    page.wait_for_timeout(500)
-    #    
+    #
     #    # Global Icons
     #    expect(dashboard_page.notification_bell).to_be_visible()
     #    page.wait_for_timeout(500)
@@ -31,13 +34,13 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.user_profile_btn).to_be_visible()
     #    page.wait_for_timeout(500)
-#
+    #
     #    # Filters
     #    expect(dashboard_page.date_filter).to_be_visible()
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.export_btn).to_be_visible()
     #    page.wait_for_timeout(500)
-#
+    #
     #    # Summary Metrics
     #    expect(dashboard_page.activation_rate).to_be_visible()
     #    page.wait_for_timeout(500)
@@ -45,7 +48,7 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.total_customers_card).to_be_visible()
     #    page.wait_for_timeout(500)
-#
+    #
     #    # Lifecycle Progress
     #    expect(dashboard_page.order_placed_val).to_be_visible()
     #    page.wait_for_timeout(500)
@@ -57,13 +60,13 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.progress_bar).to_be_visible()
     #    page.wait_for_timeout(500)
-#
+    #
     #    # Reports Section
     #    expect(dashboard_page.filter_btn).to_be_visible()
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.empty_reports_msg).to_be_visible()
     #    page.wait_for_timeout(500)
-#
+    #
     #    # Quick Actions
     #    expect(dashboard_page.quick_actions_header).to_be_visible()
     #    page.wait_for_timeout(500)
@@ -77,8 +80,8 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.ai_jobs_card).to_be_visible()
     #    page.wait_for_timeout(500)
-#
-    #def test_tc_02_verify_sidebar_ui_elements(self, page: Page):
+    #
+    # def test_tc_02_verify_sidebar_ui_elements(self, page: Page):
     #    """
     #    TC_02: Verify UI elements in Sidebar with helper texts
     #    """
@@ -92,7 +95,7 @@ class TestAdminDashboard:
     #    expect(dashboard_page.nav_order_management).to_be_visible()
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.nav_customer_care_dropdown).to_be_visible()
-    #    page.wait_for_timeout(500) 
+    #    page.wait_for_timeout(500)
     #    expect(dashboard_page.nav_customers).to_be_visible()
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.nav_reports).to_be_visible()
@@ -122,8 +125,8 @@ class TestAdminDashboard:
     #    expect(dashboard_page.nav_settings).to_be_visible()
     #    page.wait_for_timeout(500)
     #    expect(dashboard_page.nav_wiki).to_be_visible()
-#
-    #def test_tc_03_verify_notification_icon_functionality(self, page: Page):
+    #
+    # def test_tc_03_verify_notification_icon_functionality(self, page: Page):
     #    """
     #    TC_03: Verify notification icon functionality
     #    """
@@ -137,7 +140,7 @@ class TestAdminDashboard:
     #    expect(dashboard_page.notification_panel).to_be_visible()
     #    page.wait_for_timeout(1000)
     #
-    #def test_tc_04_verify_theme_switching_functionality(self, page: Page):
+    # def test_tc_04_verify_theme_switching_functionality(self, page: Page):
     #    """
     #    TC_04: Verify Switching between Dark and Light modes in Dashboard
     #    """
@@ -155,7 +158,7 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(5000)
     #    expect(page.locator("html")).to_have_class(re.compile(r"light"))
 
-    #def test_tc_05_verify_profile_menu_functionality(self, page: Page):
+    # def test_tc_05_verify_profile_menu_functionality(self, page: Page):
     #    """
     #    TC_05: Verify profile menu functionality
     #    """
@@ -169,13 +172,13 @@ class TestAdminDashboard:
     #    page.wait_for_timeout(1000)
     #    dashboard_page.verify_profile_menu_visible()
 
-    #def test_tc_06_verify_profile_dropdown_ui_elements(self, page: Page):
+    # def test_tc_06_verify_profile_dropdown_ui_elements(self, page: Page):
     #    """
     #    TC_06: Verify UI elements on user profile dropdown menu list
     #    """
     #    login_page = LoginPage(page)
     #    dashboard_page = DashboardPage(page)
-#
+    #
     #    login_page.navigate()
     #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
     #    page.wait_for_load_state("networkidle")
@@ -195,22 +198,23 @@ class TestAdminDashboard:
     #    expect(dashboard_page.menu_sign_out).to_be_visible()
     #    page.wait_for_timeout(500)
     #
-    #def test_tc_07_verify_profile_settings_navigation(self, page: Page):
-    #    """
-    #    TC_07: Verify Profile Settings functionality
-    #    """
-    #    login_page = LoginPage(page)
-    #    dashboard_page = DashboardPage(page)
-    #    login_page.navigate()
-    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
-    #    page.wait_for_load_state("networkidle")
-    #    dashboard_page.select_profile_settings()
-    #    page.wait_for_load_state("networkidle")
-    #    page.wait_for_timeout(2000)
-    #    expect(dashboard_page.profile_settings_title_area).to_be_visible()
+    def test_tc_07_verify_profile_settings_navigation(self, page: Page):
+        """
+        TC_07: Verify Profile Settings functionality
+        """
+        login_page = LoginPage(page)
+        dashboard_page = DashboardPage(page)
+        login_page.navigate()
+        login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+        page.wait_for_load_state("networkidle")
+        dashboard_page.select_profile_settings()
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(2000)
+        expect(dashboard_page.profile_settings_title_area).to_be_visible()
+
     #
     ##----------This test case is not working properly. Doesnot redirect--------
-    #def test_tc_08_verify_notification_link_functionality(self, page: Page):
+    # def test_tc_08_verify_notification_link_functionality(self, page: Page):
     #    """
     #    TC_08: Verify Notification link text functionality from profile menu
     #    """
@@ -225,9 +229,8 @@ class TestAdminDashboard:
     #    expect(page).to_have_url(re.compile(r"/notifications"))
     #    expect(dashboard_page.notifications_page_header).to_be_visible()
 
-
     ##This test case is not woring. When click redirect to another tab
-    #def test_tc_09_verify_help_support_link_functionality(self, page: Page):
+    # def test_tc_09_verify_help_support_link_functionality(self, page: Page):
     #    """
     #    TC_09: Verify Help & Support link text functionality
     #    """
@@ -242,24 +245,22 @@ class TestAdminDashboard:
     #    expect(page).to_have_url(re.compile(r"support|help"))
     #    expect(page.get_by_text(re.compile(r"Support|Contact", re.I)).first).to_be_visible()
 
-    #def test_tc_10_verify_sign_out_functionality(self, page: Page):
-    #    """
-    #    TC_10: Verify Sign Out link text functionality
-    #    """
-    #    login_page = LoginPage(page)
-    #    dashboard_page = DashboardPage(page)
-    #    login_page.navigate()
-    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
-    #    page.wait_for_load_state("networkidle")
-    #    dashboard_page.sign_out()
-    #    page.wait_for_load_state("networkidle")
-    #    page.wait_for_timeout(2000)
-    #    expect(page).to_have_url(re.compile(r"/login"))
-    #    expect(page.get_by_text("Admin Portal")).to_be_visible()
-    #    page.wait_for_timeout(1000)
-    #    expect(page.get_by_text("Sign in to access")).to_be_visible()
-    #    page.wait_for_timeout(1000)
-    
+    def test_tc_10_verify_sign_out_functionality(self, page: Page):
+        """
+        TC_10: Verify Sign Out link text functionality
+        """
+        login_page = LoginPage(page)
+        dashboard_page = DashboardPage(page)
+
+        login_page.navigate()
+        login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+        page.wait_for_load_state("networkidle")
+        dashboard_page.sign_out()
+        page.wait_for_url("**/login", timeout=10000)
+        expect(page).to_have_url(re.compile(r"/login"))
+        expect(page.get_by_text("Admin Portal")).to_be_visible()
+        expect(page.get_by_text("Sign in to access")).to_be_visible()
+
     def test_tc_11_verify_dashboard_overview_loads_successfully(self, page: Page):
         """
         TC_11: Verify Dashboard Overview loads successfully
@@ -275,7 +276,49 @@ class TestAdminDashboard:
         expect(page.get_by_text("Customer Segments Overview")).to_be_visible()
         expect(page.get_by_text("Last 30 Days")).to_be_visible()
 
-        
+    # def test_tc_12_verify_default_date_range_filter(self, page: Page):
+    #    """
+    #    TC_12: Verify default date range filter is set to 'Last 30 Days'
+    #    """
+    #    login_page = LoginPage(page)
+    #    dashboard_page = DashboardPage(page)
+    #    login_page.navigate()
+    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+    #    page.wait_for_load_state("networkidle")
+    #    page.wait_for_timeout(2000)
+    #    expect(dashboard_page.date_filter_btn).to_be_visible()
 
+    #
+    ##----------This test case is not working(Button is not working) properly. Change after develop--------
+    # def test_tc_13_verify_date_range_filter_interaction(self, page: Page):
+    #    """
+    #    TC_13: Verify Date Filter interaction (Preliminary check)
+    #    """
+    #    login_page = LoginPage(page)
+    #    dashboard_page = DashboardPage(page)
+    #    login_page.navigate()
+    #    login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+    #    page.wait_for_load_state("networkidle")
+    #    page.wait_for_timeout(2000)
+    #    dashboard_page.click_date_filter()
+    #    page.wait_for_timeout(1000)
+    #    expect(dashboard_page.date_picker_menu).to_be_visible()
+    #
 
-    
+    # ----------This test case is not working(Button is not working) properly. Change after develop--------
+    def test_tc_14_verify_export_button_functionality(self, page: Page):
+        """
+        TC_14: Verify Export button functionality
+        """
+        login_page = LoginPage(page)
+        dashboard_page = DashboardPage(page)
+
+        login_page.navigate()
+        login_page.login_with_remember_me("chamika@ceydigital.com", "Qwer@#12345")
+        page.wait_for_load_state("networkidle")
+        page.wait_for_timeout(2000)
+        with page.expect_download() as download_info:
+            dashboard_page.click_export()
+        download = download_info.value
+        expect(dashboard_page.export_btn).to_be_visible()
+        assert download.suggested_filename != ""
